@@ -19,16 +19,12 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
-group :development, :test do
-  gem 'sqlite3'
-  gem 'rspec-rails', '~> 2.9.0'
-  gem 'capybara', '~> 1.1.2'
-  gem 'poltergeist', '~> 0.6.0'
-  gem 'launchy', '~> 2.1.0'
-  gem 'factory_girl_rails', '~> 3.1.0'
-  gem 'spork', '~> 0.9.0'
+group :test, :development do
+  gem 'turn', :require => false
+  gem 'steak'
+  gem 'factory_girl_rails'
   gem 'valid_attribute'
-  gem 'capybara-webkit'
+  gem 'sqlite3'
 end
 
 group :production do
