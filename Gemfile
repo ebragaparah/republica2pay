@@ -6,6 +6,7 @@ gem 'devise', '~> 2.0.4'
 gem 'cancan', '~> 1.6.7'
 gem 'rails_admin'
 
+gem 'cocoon', '~> 1.0.20'
 gem 'haml-rails', '~> 0.3.4'
 gem 'inherited_resources', '~> 1.3.1'
 gem 'formtastic', '~> 2.2.0'
