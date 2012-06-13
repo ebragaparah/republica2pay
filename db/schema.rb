@@ -11,11 +11,20 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120612194405) do
+ActiveRecord::Schema.define(:version => 20120612202950) do
 
   create_table "contas", :force => true do |t|
     t.string   "nome"
     t.float    "valor"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.integer  "fatura_id"
+  end
+
+  create_table "faturas", :force => true do |t|
+    t.date     "vencimento"
+    t.float    "total"
+    t.float    "por_pessoa"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end

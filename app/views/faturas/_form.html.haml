@@ -1,0 +1,12 @@
+= semantic_form_for @fatura do |f|
+  = f.inputs do
+    = f.input :vencimento
+
+    %h3 Contas
+    #contas
+      = f.semantic_fields_for :contas do |conta|
+        = render 'conta_fields', :f => conta
+      .links
+        = link_to_add_association 'Nova conta', f, :contas
+
+  = f.submit

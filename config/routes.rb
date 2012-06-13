@@ -1,6 +1,6 @@
 Republica2pay::Application.routes.draw do
 
-  resources :contas, only: [:new, :create]
+  resources :faturas
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
