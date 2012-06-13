@@ -26,6 +26,7 @@ group :test, :development do
   gem 'factory_girl_rails'
   gem 'valid_attribute'
   gem 'sqlite3'
+  gem 'poltergeist', '~> 0.6.0'
 end
 
 group :production do
