@@ -2,6 +2,20 @@
 require 'spec_helper'
 
 feature "gerenciar contas do mes" do
+  
+  scenario 'autorização' do
+    create :user, email: 'user@email.com', password: '123456'
+    visit new_fatura_path
+    page.should have_content 'Você não tem permissão.'
+    page.should have_content 'Sign in'
+
+    visit new_user_session_path
+    fill_in 'Email', with: 'user@email.com'
+    fill_in 'Password', with: '123456'
+    click_button 'Sign in'
+    page.should have_content 'Você entrou com sucesso.'
+  end
+  
   scenario 'fechar a fatura do mes', javascript: true do
     visit new_fatura_path
     select '1', :from => 'Dia'
