@@ -1,4 +1,7 @@
 pt-BR:
+  unauthorized:
+    manage:
+      all: "Você não tem permissão."
   date:
     abbr_day_names:
     - Dom
