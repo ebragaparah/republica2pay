@@ -14,9 +14,14 @@ feature "gerenciar contas do mes" do
     fill_in 'Password', with: '123456'
     click_button 'Sign in'
     page.should have_content 'Você entrou com sucesso.'
+    visit new_fatura_path 
+    page.should have_content 'Nova fatura'
+
   end
   
   scenario 'fechar a fatura do mes', javascript: true do
+    user = create :user, email: 'user2@email.com', password: '123456'
+    logar(user)
     visit new_fatura_path
     select '1', :from => 'Dia'
     select 'Abril', :from => 'Mês'
