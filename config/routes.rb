@@ -1,5 +1,7 @@
 Republica2pay::Application.routes.draw do
 
+  resources :republicas, only: [:index, :new, :create, :show]
+
   devise_for :users
 
   root to: 'home#index'

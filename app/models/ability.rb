@@ -6,6 +6,7 @@ class Ability
     #
     if not user.nil?
       can :manage, Fatura
+      can [:create, :read], Republica
     end
     #
     # The first argument to `can` is the action you are giving the user permission to do.

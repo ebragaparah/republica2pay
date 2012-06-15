@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120614201719) do
+ActiveRecord::Schema.define(:version => 20120615013358) do
 
   create_table "contas", :force => true do |t|
     t.string   "nome"
@@ -29,6 +29,12 @@ ActiveRecord::Schema.define(:version => 20120614201719) do
     t.datetime "updated_at", :null => false
   end
 
+  create_table "republicas", :force => true do |t|
+    t.string   "nome"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
     t.string   "encrypted_password",     :default => "", :null => false
@@ -42,6 +48,7 @@ ActiveRecord::Schema.define(:version => 20120614201719) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
+    t.integer  "republica_id"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

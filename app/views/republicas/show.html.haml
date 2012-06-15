@@ -1,0 +1,13 @@
+%p
+  %b Nome:
+  = @republica.nome
+
+%fieldset
+  %legend Moradores
+
+  - @republica.moradores.each do |morador|
+    %p
+      %b Email:
+      = morador.email
+
+= link_to 'Back', republicas_path
