@@ -13,7 +13,7 @@ class RepublicasController < InheritedResources::Base
 
   def receber_morador
     @republica = Republica.find(params[:id])
-    current_user.entrar_em(@republica)
-    render 'show'
+    current_user.republica = @republica
+    render 'show' if current_user.save
   end
 end

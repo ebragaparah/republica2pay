@@ -37,6 +37,8 @@ feature "gerenciar republica" do
 
     visit republica_path(r1)
     click_button 'Entrar para a republica.'
-    page.should have_content 'pedro@email.com'
+    within_fieldset 'Moradores' do
+      page.should have_content 'pedro@email.com'
+    end
   end
 end

@@ -12,10 +12,11 @@ describe User do
   end
 
   it "deveria ser capaz de entrar/mudar de republica" do
-    republica1 = create :republica
-    republica2 = create :republica
+    republica = create :republica
 
-    @user.entrar_em(republica1)
-    User.first.republica.should == republica1
+    @user.republica = republica
+    @user.save
+    
+    User.first.republica.should == republica
   end
 end
