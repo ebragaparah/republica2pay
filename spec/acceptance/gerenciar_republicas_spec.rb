@@ -30,4 +30,13 @@ feature "gerenciar republica" do
     page.should have_content 'Você só pode estar associado a uma Republica!'
     page.should have_content 'Nova republica'
   end
+
+  scenario 'usuario pode entrar/mudar de republica' do
+    r1 = create :republica, nome: 'Republica 1'
+    logar(create :user, email: 'pedro@email.com')
+
+    visit republica_path(r1)
+    click_button 'Entrar para a republica.'
+    page.should have_content 'pedro@email.com'
+  end
 end

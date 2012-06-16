@@ -19,4 +19,9 @@ class User < ActiveRecord::Base
       return nil
     end
   end
+
+  def entrar_em(republica)
+    self.republica = republica
+    self.save
+  end
 end

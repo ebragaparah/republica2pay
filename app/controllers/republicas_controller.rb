@@ -2,7 +2,6 @@
 class RepublicasController < InheritedResources::Base
   load_and_authorize_resource
 
-
   def create
     @republica = current_user.criar_republica(params[:republica])
     if not @republica.nil?
@@ -10,5 +9,11 @@ class RepublicasController < InheritedResources::Base
     else
       redirect_to new_republica_path, alert: 'Você só pode estar associado a uma Republica!'
     end
+  end
+
+  def receber_morador
+    @republica = Republica.find(params[:id])
+    current_user.entrar_em(@republica)
+    render 'show'
   end
 end
