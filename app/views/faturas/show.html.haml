@@ -1,16 +1,3 @@
-%p
-  %b Vencimento:
-  = @fatura.vencimento
-%p
-  %b Total:
-  = @fatura.total
-%p
-  %b Por pessoa:
-  = @fatura.por_pessoa
+= render @fatura
 
-.contas
-  = render @fatura.contas
-
-= link_to 'Editar', edit_fatura_path(@fatura)
-\|
 = link_to 'Voltar', faturas_path

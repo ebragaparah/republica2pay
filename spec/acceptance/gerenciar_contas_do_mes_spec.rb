@@ -2,7 +2,8 @@
 require 'spec_helper'
 
 feature "gerenciar contas do mes" do
-  
+  before(:each) { ActionMailer::Base.deliveries = [] }
+
   scenario 'autorização' do
     create :user, email: 'user@email.com', password: '123456'
     visit new_fatura_path
@@ -46,9 +47,20 @@ feature "gerenciar contas do mes" do
     page.should have_content 'Valor: 100.44'
     page.should have_content 'luz'
     page.should have_content 'Valor: 300'
-
     page.should have_content 'Total: 400.44'
     page.should have_content 'Por pessoa: 100.11'
 
+    ActionMailer::Base.deliveries.last.should_not be_nil
+    ultimo_email = ActionMailer::Base.deliveries.last
+    
+    ultimo_email.to.should == User.all.map { |e| e.email }
+    ultimo_email.from.should include "republica2pay@gmail.com"
+  
+    ultimo_email.body.should have_content 'Agua'
+    ultimo_email.body.should have_content 'Valor: 100.44'
+    ultimo_email.body.should have_content 'luz'
+    ultimo_email.body.should have_content 'Valor: 300'
+    ultimo_email.body.should have_content 'Total: 400.44'
+    ultimo_email.body.should have_content 'Por pessoa: 100.11' 
   end
 end
