@@ -5,4 +5,8 @@ class Grupo < ActiveRecord::Base
 
   has_many :contas
   validates_presence_of :republica
+
+  def maior_saldo
+    self.moradores.sort_by{|morador| morador.total_gasto_em(self)}.last
+  end
 end

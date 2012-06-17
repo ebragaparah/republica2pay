@@ -1,6 +1,8 @@
 Republica2pay::Application.routes.draw do
 
-  resources :grupos
+  resources :grupos do
+    resources :contas, only: [:index, :new, :create, :show]
+  end
 
   resources :republicas, only: [:index, :new, :create, :show] do
     post :receber_morador, :on => :member

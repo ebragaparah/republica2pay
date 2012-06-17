@@ -1,6 +1,10 @@
 %fieldset
-  %legend Participante
+  %legend
+    = user.email
 
   %p
     %b email:
     = user.email
+  %p
+    %b Debito:
+    = user.debito_em(@grupo)

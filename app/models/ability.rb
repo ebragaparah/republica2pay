@@ -8,6 +8,7 @@ class Ability
       can :manage, Fatura
       can [:create, :read, :receber_morador], Republica
       can :manage, Grupo
+      can :manage, Conta
     end
     #
     # The first argument to `can` is the action you are giving the user permission to do.

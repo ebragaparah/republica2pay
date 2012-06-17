@@ -19,4 +19,39 @@ describe User do
     
     User.first.republica.should == republica
   end
+
+  context "contas" do
+    before(:each) do
+      republica = create :republica
+     
+      @dbGT = create :grupo, republica: republica
+      @dragonball = create :grupo, republica: republica
+
+      @goku = create :user, republica: republica, grupos: [@dbGT, @dragonball]
+      @pan = create :user, republica: republica, grupos: [@dbGT]
+
+      @pan.contas.create! nome: 'luz', valor: '100', grupo: @dbGT
+      @pan.contas.create! nome: 'Agua', valor: '200', grupo: @dbGT
+      @goku.contas.create! nome: 'Gas', valor: '100', grupo: @dbGT
+      
+      @goku.contas.create! nome: 'Gas', valor: '100', grupo: @dragonball
+    end  
+    
+    it "deve saber o seu total q gastou em um grupo" do
+      @pan.total_gasto_em(@dbGT).should == 300
+      @goku.total_gasto_em(@dbGT).should == 100
+
+      @goku.total_gasto_em(@dragonball).should == 100
+      @pan.total_gasto_em(@dragonball).should == 0
+    end
+
+    it "deve saber o seu debito em um grupo" do
+      @goku.debito_em(@dbGT).should == 200
+      @pan.debito_em(@dbGT).should == 0
+
+      @goku.debito_em(@dragonball).should == 0
+      @pan.debito_em(@dragonball).should == 100
+    end
+  end
+  
 end
