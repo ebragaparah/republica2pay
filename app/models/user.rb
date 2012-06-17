@@ -9,6 +9,7 @@ class User < ActiveRecord::Base
   # attr_accessible :title, :body
 
   belongs_to :republica
+  has_and_belongs_to_many :grupos
 
   def criar_republica(params)
     if self.republica.nil?
