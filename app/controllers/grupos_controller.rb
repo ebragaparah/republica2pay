@@ -4,4 +4,9 @@ class GruposController < InheritedResources::Base
   def index
     @grupos = current_user.republica.grupos
   end
+
+  def new
+    @grupo = Grupo.new
+    @moradores = current_user.republica.moradores
+  end
 end
