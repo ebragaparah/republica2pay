@@ -1,0 +1,6 @@
+= semantic_form_for @grupo do |f|
+  = f.inputs do
+    = f.input :nome
+    = f.input :moradores, :as => :check_boxes, :member_label => :email, label: 'Moradores', collection: current_user.republica.moradores
+
+  = f.submit
