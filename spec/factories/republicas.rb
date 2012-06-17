@@ -2,6 +2,6 @@
 
 FactoryGirl.define do
   factory :republica do
-    nome "MyString"
+    sequence(:nome) {|n| "republica#{n}" }
   end
 end

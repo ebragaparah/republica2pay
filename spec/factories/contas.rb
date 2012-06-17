@@ -2,7 +2,7 @@
 
 FactoryGirl.define do
   factory :conta do
-    nome "conta"
+    sequence(:nome) {|n| "conta#{n}" }
     valor 100
   end
 end
