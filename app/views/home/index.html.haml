@@ -1,7 +1,10 @@
-Home
-- if user_signed_in?
-  = link_to('Republica', republica_path(current_user.republica)) if not current_user.republica.nil?
-  = link_to 'Nova Republica', new_republica_path
-  = link_to 'Republicas', republicas_path
-- else
-  = link_to 'login', new_user_session_path
+%h1 Bem vindo!!
+%p Esta cansado de fazer as contas da sua republica na mão!? 
+%p 
+  Seus Problemas 
+  %b ACABARAM!
+%p 
+  %a.btn.btn-primary.btn-large(href= 'https://github.com/henrique2010/republica2pay')
+    Quer ajudar melhorar ou relatar problemas? - Github
+    
+ps: Aceito ajuda no layout!
