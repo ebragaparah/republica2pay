@@ -38,9 +38,8 @@
               %li= user_signed_in? ? link_to("#{current_user.email} - Logout", destroy_user_session_path, :method => :delete) : link_to('Login', new_user_session_path)
 
     .container
-
       .content
-        .row
+        .row-fluid
           .span9
             - unless notice.nil?
               .alert.alert-success
@@ -61,7 +60,11 @@
                   %li= link_to("Novo Grupo", new_grupo_path)
                   %li= link_to 'Nova Republica', new_republica_path
                   %li= link_to 'Nova Fatura', new_fatura_path unless current_user.republica.nil?
-    
+            .alert.alert-block
+              %a.close{"data-dismiss" => "alert", :href => "#"} ×
+              %h4.alert-heading Atenção!
+              Site em desenvolvimento, mudanças podem ocorrer sem mais avisos.
+
       %footer
         %p 
           &copy; Company 2012 - 

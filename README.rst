@@ -4,3 +4,4 @@
 .. _Travis: http://travis-ci.org/henrique2010/republica2pay
 
 == Republica2pay
+Staging: http://republica2pay.herokuapp.com/
