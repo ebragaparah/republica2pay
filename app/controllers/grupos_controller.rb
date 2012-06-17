@@ -9,4 +9,15 @@ class GruposController < InheritedResources::Base
     @grupo = Grupo.new
     @moradores = current_user.republica.moradores
   end
+
+  def create
+    @grupo = Grupo.new(params[:grupo])
+    @grupo.republica = current_user.republica
+
+    if @grupo.save
+      redirect_to grupo_path(@grupo), notice: 'Grupo criado com sucesso.'
+    else
+      render 'new'
+    end
+  end
 end

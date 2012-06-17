@@ -4,3 +4,23 @@ def logar(user)
   fill_in 'Password', with: user.password
   click_button 'Sign in'
 end
+
+def deslogar
+  click_link 'Logout'
+end
+
+def criar_grupo(params)
+  logar(params[:user])
+  
+  visit new_grupo_path
+  
+  republica_atual, params[:user].republica = params[:user].republica, params[:republica]
+  params[:user].save!
+  
+  fill_in 'Nome', with: params[:nome]
+  click_button 'Criar Grupo'
+
+  params[:user].republica = republica_atual
+  params[:user].save!
+  deslogar
+end

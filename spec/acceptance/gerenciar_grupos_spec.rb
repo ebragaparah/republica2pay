@@ -26,11 +26,12 @@ feature "gerenciar grupos" do
 
   scenario 'usuario só pode ver grupos relacionados a sua republica' do
     starwars = create :republica
-    create :grupo, republica: starwars, nome: 'sith'
-    create :grupo, republica: starwars, nome: 'jedi'
-    create :grupo, nome: 'zodiaco'
-
     vader = create :user, republica: starwars
+    
+    criar_grupo(republica: starwars, nome: 'sith', user: vader)
+    criar_grupo(republica: starwars, nome: 'jedi', user: vader)
+    criar_grupo(republica: create(:republica), nome: 'zodiaco', user: vader)
+
     logar(vader)
     visit grupos_path
 
