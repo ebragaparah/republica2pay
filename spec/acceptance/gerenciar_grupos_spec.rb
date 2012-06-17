@@ -1,10 +1,10 @@
 # encoding: utf-8
 require 'spec_helper'
 
-feature "gerenciar contas especificas" do
-  scenario 'criar um grupo com contas especificas' do
+feature "gerenciar grupos" do
+  scenario 'criar um grupo' do
     familia = create :republica
-    anakin, obiwan = create(:user, republica: familia), create(:user)
+    luke, obiwan = create(:user, republica: familia), create(:user)
     
     visit new_grupo_path
     page.should have_content 'Você não tem permissão.'
@@ -12,15 +12,15 @@ feature "gerenciar contas especificas" do
     visit new_grupo_path
     
     page.should have_content 'Novo grupo'
-    page.should have_content anakin.email
+    page.should have_content luke.email
     page.should_not have_content obiwan.email
 
     fill_in 'Nome', with: 'Pendencia'
-    check anakin.email
+    check luke.email
     click_button 'Criar Grupo'
 
     page.should have_content 'Grupo Pendencia'
-    page.should have_content anakin.email
+    page.should have_content luke.email
     page.should have_content 'vader@email.com'
   end
 end
