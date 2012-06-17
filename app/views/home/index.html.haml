@@ -1,1 +1,7 @@
 Home
+- if user_signed_in?
+  = link_to('Republica', republica_path(current_user.republica)) if not current_user.republica.nil?
+  = link_to 'Nova Republica', new_republica_path
+  = link_to 'Republicas', republicas_path
+- else
+  = link_to 'login', new_user_session_path
