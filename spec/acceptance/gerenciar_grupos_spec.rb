@@ -23,4 +23,19 @@ feature "gerenciar grupos" do
     page.should have_content luke.email
     page.should have_content 'vader@email.com'
   end
+
+  scenario 'usuario só pode ver grupos relacionados a sua republica' do
+    starwars = create :republica
+    create :grupo, republica: starwars, nome: 'sith'
+    create :grupo, republica: starwars, nome: 'jedi'
+    create :grupo, nome: 'zodiaco'
+
+    vader = create :user, republica: starwars
+    logar(vader)
+    visit grupos_path
+
+    page.should have_content 'sith'
+    page.should have_content 'jedi'
+    page.should_not have_content 'zodiaco'
+  end
 end
