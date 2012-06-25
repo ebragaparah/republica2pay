@@ -4,7 +4,7 @@ require 'spec_helper'
 feature "cadastro" do
   scenario 'só deve ser aceito mediante a confirmação' do
     ActionMailer::Base.deliveries = []
-    user = create :user
+    user = User.create! email: 'user@email.com', password: '123456'
 
     logar(user)
     page.should have_content 'Você deve confirmar a sua conta antes de continuar.'
