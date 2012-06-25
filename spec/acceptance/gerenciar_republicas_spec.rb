@@ -31,14 +31,11 @@ feature "gerenciar republica" do
     page.should have_content 'Nova republica'
   end
 
-  scenario 'usuario pode entrar/mudar de republica' do
+  scenario 'usuario pode entrar/mudar de republica somente mediante a email' do
     r1 = create :republica, nome: 'Republica 1'
     logar(create :user, email: 'pedro@email.com')
 
     visit republica_path(r1)
-    click_button 'Entrar para a republica.'
-    within_fieldset 'Moradores' do
-      page.should have_content 'pedro@email.com'
-    end
+    page.should have_content 'Você não tem permissão.'
   end
 end
