@@ -6,7 +6,7 @@ class Ability
     #
     if not user.nil?
       can :manage, Fatura
-      can [:create, :read, :receber_morador], Republica
+      can [:create, :show, :receber_morador], Republica
       can :manage, Grupo
       can :manage, Conta
     end

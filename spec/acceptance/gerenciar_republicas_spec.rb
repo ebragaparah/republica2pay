@@ -31,9 +31,12 @@ feature "gerenciar republica" do
     page.should have_content 'Nova republica'
   end
 
-  scenario 'usuario pode entrar/mudar de republica somente mediante a email' do
+  scenario 'usuario só pode visualizar/entrar na sua republica' do
     r1 = create :republica, nome: 'Republica 1'
     logar(create :user, email: 'pedro@email.com')
+
+    visit republicas_path
+    page.should have_content 'Você não tem permissão para acessar esse conteúdo.'
 
     visit republica_path(r1)
     page.should have_content 'Você não tem permissão para acessar esse conteúdo.'

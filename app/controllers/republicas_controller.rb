@@ -2,6 +2,11 @@
 class RepublicasController < InheritedResources::Base
   load_and_authorize_resource
 
+  def show
+    @republica = Republica.find(params[:id])
+    redirect_to root_path, alert: 'Você não tem permissão para acessar esse conteúdo.' if current_user.republica != @republica
+  end
+
   def create
     @republica = current_user.criar_republica(params[:republica])
     if not @republica.nil?
