@@ -4,7 +4,7 @@ require 'spec_helper'
 feature "gerenciar republica" do
   scenario 'usuario ao criar uma republica, se relaciona com ela automaticamente' do
     visit new_republica_path
-    page.should have_content 'Você não tem permissão.'
+    page.should have_content 'Você não tem permissão para acessar esse conteúdo.'
     logar(create :user, email: 'usuario@email.com')
 
     visit new_republica_path
@@ -36,6 +36,6 @@ feature "gerenciar republica" do
     logar(create :user, email: 'pedro@email.com')
 
     visit republica_path(r1)
-    page.should have_content 'Você não tem permissão.'
+    page.should have_content 'Você não tem permissão para acessar esse conteúdo.'
   end
 end

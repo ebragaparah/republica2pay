@@ -12,7 +12,7 @@ feature "gerenciar contas em um grupo" do
     vegeta = create :user, republica: republica, grupos: [grupo]
 
     visit new_grupo_conta_path(grupo)
-    page.should have_content 'Você não tem permissão.'
+    page.should have_content 'Você não tem permissão para acessar esse conteúdo.'
     
     logar(goku)
     visit new_grupo_conta_path(grupo)

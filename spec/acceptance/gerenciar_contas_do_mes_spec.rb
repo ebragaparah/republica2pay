@@ -7,7 +7,7 @@ feature "gerenciar contas do mes" do
   scenario 'autorização' do
     create :user, email: 'user@email.com', password: '123456'
     visit new_fatura_path
-    page.should have_content 'Você não tem permissão.'
+    page.should have_content 'Você não tem permissão para acessar esse conteúdo.'
     page.should have_content 'Sign in'
 
     visit new_user_session_path

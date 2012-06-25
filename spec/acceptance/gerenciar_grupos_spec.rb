@@ -7,7 +7,7 @@ feature "gerenciar grupos" do
     luke, obiwan = create(:user, republica: familia), create(:user)
     
     visit new_grupo_path
-    page.should have_content 'Você não tem permissão.'
+    page.should have_content 'Você não tem permissão para acessar esse conteúdo.'
     logar(create :user, email: 'vader@email.com', republica: familia)
     visit new_grupo_path
     
