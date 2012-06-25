@@ -29,7 +29,7 @@
           .nav-collapse.collapse
             %ul.nav
               - if user_signed_in? 
-                %li= link_to('Minha Republica', republica_path(current_user.republica))
+                %li= link_to('Minha Republica', republica_path(current_user.republica)) unless current_user.republica.nil?
                 %li= link_to("Meus Grupos", grupos_path)
                 %li= link_to 'Republicas', republicas_path
               - else
