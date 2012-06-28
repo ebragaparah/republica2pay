@@ -9,7 +9,7 @@ class RepublicasController < InheritedResources::Base
 
   def create
     @republica = current_user.criar_republica(params[:republica])
-    if not @republica.nil?
+    if @republica
       redirect_to republica_path(@republica), notice: 'Republica criada com sucesso.'
     else
       redirect_to new_republica_path, alert: 'Você só pode estar associado a uma Republica!'

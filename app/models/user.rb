@@ -38,4 +38,12 @@ class User < ActiveRecord::Base
   def contas_em(grupo)
     Grupo.find(grupo).contas.select{|conta| conta.user == self}
   end
+
+  def enviar_fatura(fatura)
+    RepublicaMailer.enviar_fatura_do_mes(fatura).deliver
+  end
+
+  def enviar_debito_grupo(grupo)
+    RepublicaMailer.enviar_debito_grupo(grupo, self).deliver
+  end
 end

@@ -3,7 +3,7 @@ require 'spec_helper'
 
 feature "gerenciar contas em um grupo" do
   scenario 'criação de uma conta simples' do
-    ActionMailer::Base.deliveries = []
+    zerar_email
 
     republica = create :republica
     grupo = create :grupo, republica: republica
@@ -29,17 +29,9 @@ feature "gerenciar contas em um grupo" do
       page.should have_content 'Debito: 100.44'  
     end
 
-    ActionMailer::Base.deliveries.last.should_not be_nil
-    ultimo_email = ActionMailer::Base.deliveries.last
-    ultimo_email.to.should == grupo.moradores.map { |e| e.email }
-
-    within_fieldset goku.email do
-      ultimo_email.body.should have_content 'Debito: 0'  
-    end
-    
-    within_fieldset vegeta.email do
-      ultimo_email.body.should have_content 'Debito: 100.44'  
-    end
-
+    ultimo_email.should_not be_nil
+    ultimo_email.to.should == grupo.moradores.map { |e| e.email }    
+    ultimo_email.body.should have_content 'Debito: 0'  
+    ultimo_email.body.should have_content 'Debito: 100.44'  
   end
 end

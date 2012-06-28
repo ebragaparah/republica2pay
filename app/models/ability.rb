@@ -4,7 +4,7 @@ class Ability
   def initialize(user)
     # Define abilities for the passed in user here. For example:
     #
-    if not user.nil?
+    if user
       can :manage, Fatura
       can [:create, :show, :receber_morador], Republica
       can :manage, Grupo

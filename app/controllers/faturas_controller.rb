@@ -7,7 +7,7 @@ class FaturasController < InheritedResources::Base
 
     if @fatura.save
       redirect_to fatura_path(@fatura), notice: 'Fatura Criada com sucesso.'
-      RepublicaMailer.enviar_fatura_do_mes(@fatura).deliver
+      current_user.enviar_fatura(@fatura)
     else
       render 'new'
     end
