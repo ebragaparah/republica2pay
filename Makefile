@@ -1,15 +1,11 @@
 deploy:
-	rvm 1.9.3@republica
 	git pull
-	git branch -l temp 
+	git branch -l temps
 	
-	cp ../deploy/republica2pay/production.rb config/environments/ 
-	echo "\ngem 'heroku'\nruby '1.9.3'" >> Gemfile
-	bundle install
-	git add .
-	git commit -m 'deploy'
+	git pull git@heroku.com:republica2pay.git
 
 	git push heroku master
+	git reset --hard temps
+	git branch -D temps
+	
 	heroku run rake db:migrate
-	git reset --hard temp
-	git branch -D temp
