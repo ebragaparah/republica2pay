@@ -85,6 +85,7 @@ pt-BR:
       destroyed: "Sua conta foi cancelada com sucesso. Esperamos vê-lo novamente em breve."
       signed_up: "Você se inscreveu com êxito. Se habilitado, a confirmação foi enviada para seu e-mail."
       updated: "Você atualizou a sua conta com sucesso."
+      signed_up_but_unconfirmed: 'Uma mensagem com um link de confirmação foi enviado para seu endereço de e-mail. Por favor, abra o link para ativar sua conta.'
     sessions:
       new:
         alpha_software: "Você está prestes a usar um software alpha."
