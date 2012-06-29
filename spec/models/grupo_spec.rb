@@ -6,9 +6,9 @@ describe Grupo do
   it "deve saber quem tem o maior saldo" do   
     dbGT = create :grupo
 
-    goku = create :user, grupos: [dbGT]
-    pan = create :user, grupos: [dbGT]
-    vegeta = create :user, grupos: [dbGT]
+    goku = create :user_confirmado, grupos: [dbGT]
+    pan = create :user_confirmado, grupos: [dbGT]
+    vegeta = create :user_confirmado, grupos: [dbGT]
 
     pan.contas.create! nome: 'luz', valor: '300', grupo: dbGT
     pan.contas.create! nome: 'luz', valor: '300', grupo: dbGT

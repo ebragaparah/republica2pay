@@ -8,7 +8,7 @@ feature "gerenciar grupos" do
     
     visit new_grupo_path
     page.should have_content 'Você não tem permissão para acessar esse conteúdo.'
-    logar(create :user, email: 'vader@email.com', republica: familia)
+    logar(create :user_confirmado, email: 'vader@email.com', republica: familia)
     visit new_grupo_path
     
     page.should have_content 'Novo grupo'
@@ -26,7 +26,7 @@ feature "gerenciar grupos" do
 
   scenario 'usuario só pode ver grupos relacionados a sua republica' do
     starwars = create :republica
-    vader = create :user, republica: starwars
+    vader = create :user_confirmado, republica: starwars
     
     criar_grupo(republica: starwars, nome: 'sith', user: vader)
     criar_grupo(republica: starwars, nome: 'jedi', user: vader)

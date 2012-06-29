@@ -5,7 +5,7 @@ feature "gerenciar contas do mes" do
   before(:each) { zerar_email }
 
   scenario 'autorização' do
-    create :user, email: 'user@email.com', password: '123456'
+    create :user_confirmado, email: 'user@email.com', password: '123456'
     visit new_fatura_path
     page.should have_content 'Você não tem permissão para acessar esse conteúdo.'
     page.should have_content 'Sign in'
@@ -22,8 +22,8 @@ feature "gerenciar contas do mes" do
   
   scenario 'fechar a fatura do mes', javascript: true do
     republica = create :republica, nome: 'Republica Foo'
-    3.times {create :user, republica: republica}
-    logar (create :user, republica: republica)
+    3.times {create :user_confirmado, republica: republica}
+    logar (create :user_confirmado, republica: republica)
 
     visit new_fatura_path
     select '1', :from => 'Dia'

@@ -8,8 +8,8 @@ feature "gerenciar contas em um grupo" do
     republica = create :republica
     grupo = create :grupo, republica: republica
     
-    goku = create :user, republica: republica, grupos: [grupo]
-    vegeta = create :user, republica: republica, grupos: [grupo]
+    goku = create :user_confirmado, republica: republica, grupos: [grupo]
+    vegeta = create :user_confirmado, republica: republica, grupos: [grupo]
 
     visit new_grupo_conta_path(grupo)
     page.should have_content 'Você não tem permissão para acessar esse conteúdo.'

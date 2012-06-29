@@ -7,7 +7,7 @@ describe Fatura do
 
   it "deveria calcular o total das contas e por usuario da republica, apos a sua criação" do
     republica = create :republica, nome: 'Foo'
-    3.times {create :user, republica: republica}
+    3.times {create :user_confirmado, republica: republica}
     3.times {create :conta, valor: 100}
     Fatura.create vencimento: Date.today, contas: Conta.all, republica: republica
     

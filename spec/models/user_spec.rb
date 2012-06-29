@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe User do
   before(:each) do
-    @user = create :user
+    @user = create :user_confirmado
   end
 
   it "deveria criar apenas uma republica" do
@@ -27,8 +27,8 @@ describe User do
       @dbGT = create :grupo, republica: republica
       @dragonball = create :grupo, republica: republica
 
-      @goku = create :user, republica: republica, grupos: [@dbGT, @dragonball]
-      @pan = create :user, republica: republica, grupos: [@dbGT]
+      @goku = create :user_confirmado, republica: republica, grupos: [@dbGT, @dragonball]
+      @pan = create :user_confirmado, republica: republica, grupos: [@dbGT]
 
       @pan.contas.create! nome: 'luz', valor: '100', grupo: @dbGT
       @pan.contas.create! nome: 'Agua', valor: '200', grupo: @dbGT

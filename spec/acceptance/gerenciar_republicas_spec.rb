@@ -5,7 +5,7 @@ feature "gerenciar republica" do
   scenario 'usuario ao criar uma republica, se relaciona com ela automaticamente' do
     visit new_republica_path
     page.should have_content 'Você não tem permissão para acessar esse conteúdo.'
-    logar(create :user, email: 'usuario@email.com')
+    logar(create :user_confirmado, email: 'usuario@email.com')
 
     visit new_republica_path
     fill_in 'Nome', with: 'republica 1'
@@ -19,7 +19,7 @@ feature "gerenciar republica" do
   end
 
   scenario 'usuario só pode criar uma republica' do
-    user = create :user
+    user = create :user_confirmado
     user.criar_republica nome: 'Republica 1'
     logar(user)
 
@@ -33,7 +33,7 @@ feature "gerenciar republica" do
 
   scenario 'usuario só pode visualizar/entrar na sua republica' do
     r1 = create :republica, nome: 'Republica 1'
-    logar(create :user, email: 'pedro@email.com')
+    logar(create :user_confirmado, email: 'pedro@email.com')
 
     visit republicas_path
     page.should have_content 'Você não tem permissão para acessar esse conteúdo.'
