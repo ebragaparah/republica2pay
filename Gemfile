@@ -1,6 +1,8 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.3'
+ruby '1.9.3'
+gem 'heroku'
 
 gem 'devise', '~> 2.0.4'
 gem 'cancan', '~> 1.6.7'
