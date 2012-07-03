@@ -1,6 +1,7 @@
 class ConvitesController < InheritedResources::Base
   actions :new, :create
-
+  load_and_authorize_resource
+  
   def new
     @convite = Convite.new
     @convite.convidados.build 

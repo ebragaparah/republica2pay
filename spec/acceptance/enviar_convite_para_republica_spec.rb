@@ -2,6 +2,11 @@
 require 'spec_helper'
 feature 'enviar convites' do
   scenario 'para usuarios não cadastrados', javascript: true do
+    visit(new_convite_path)
+    
+    current_path.should_not eql(new_convite_path)
+    page.should have_content 'Você não tem permissão para acessar esse conteúdo.'
+
     logar(create :user_com_republica)
     zerar_email
     
