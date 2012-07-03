@@ -7,6 +7,10 @@ FactoryGirl.define do
 
     factory :user_confirmado do
       after(:create) { |u| u.confirm! }
+
+      factory :user_com_republica do
+        republica {create :republica}
+      end
     end
   end
 end
