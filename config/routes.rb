@@ -1,5 +1,7 @@
 Republica2pay::Application.routes.draw do
 
+  resources :convites, only: [:new, :create]
+
   resources :grupos do
     resources :contas, only: [:index, :new, :create, :show]
   end

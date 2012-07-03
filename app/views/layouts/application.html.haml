@@ -61,6 +61,7 @@
                     %li= link_to("Novo Grupo", new_grupo_path)
                     %li= link_to 'Nova Republica', new_republica_path
                     %li= link_to 'Nova Fatura', new_fatura_path unless current_user.republica.nil?
+                    %li= link_to 'Enviar convite', new_convite_path if current_user.republica
             .alert.alert-info
               %p
                 %h4.alert-heading Quer ajudar melhorar ou relatar problemas?

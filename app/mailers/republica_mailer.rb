@@ -14,4 +14,8 @@ class RepublicaMailer < ActionMailer::Base
     mail(to: emails, 
          subject: "#{morador} fez uma compra")
   end
+
+  def enviar_convite
+    mail()
+  end
 end

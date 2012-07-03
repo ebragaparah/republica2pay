@@ -1,0 +1,8 @@
+= semantic_form_for @convite do |f|
+  = f.input :mensagem
+  #convidados
+    = f.semantic_fields_for :convidados do |convidado|
+      = render 'convidado_fields', :f => convidado
+    .links
+      = link_to_add_association 'Novo convidado', f, :convidados
+  = f.submit 'Enviar convites'
