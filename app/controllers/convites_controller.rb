@@ -1,7 +1,7 @@
 class ConvitesController < InheritedResources::Base
   actions :new, :create
   load_and_authorize_resource
-  
+
   def new
     @convite = Convite.new
     @convite.convidados.build 
@@ -9,6 +9,6 @@ class ConvitesController < InheritedResources::Base
   
   def create
     create!(notice: 'Convites enviados com sucesso'){republica_path(current_user.republica)}
-    RepublicaMailer.enviar_convite.deliver
+    current_user.enviar_convite(@convite)
   end
 end

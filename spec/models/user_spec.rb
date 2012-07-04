@@ -53,5 +53,17 @@ describe User do
       @pan.debito_em(@dragonball).should == 100
     end
   end
+
+  describe "#enviar_convite" do
+    it "deveria enviar email para os convidados do convite" do
+      zerar_email
+      @user.republica = create(:republica)
+      3.times {create :convidado}
+      
+      @user.enviar_convite(create :convite, convidados: Convidado.all)
+
+      ultimo_email.to.should == Convidado.all.map { |convidado| convidado.email }
+    end
+  end
   
 end

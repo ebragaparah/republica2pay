@@ -24,5 +24,6 @@ feature 'enviar convites' do
     click_button 'Enviar convites'
     page.should have_content 'Convites enviados com sucesso'
     ultimo_email.should_not be_nil
+    ultimo_email.to.should include 'yoda@email.com'
   end
 end

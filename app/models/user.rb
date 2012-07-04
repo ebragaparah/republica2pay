@@ -46,4 +46,8 @@ class User < ActiveRecord::Base
   def enviar_debito_grupo(grupo)
     RepublicaMailer.enviar_debito_grupo(grupo, self).deliver
   end
+
+  def enviar_convite(convite)
+    RepublicaMailer.enviar_convite_de(convite,self).deliver
+  end
 end
