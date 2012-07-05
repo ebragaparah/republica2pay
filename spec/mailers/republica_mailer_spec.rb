@@ -18,7 +18,7 @@ describe RepublicaMailer do
     it "renderizar corpo" do
       @mail.body.encoded.should match("#{@user.email} te convidou para participar da republica #{@user.republica.nome}")
       @mail.body.should have_link("Click aqui para aceitar o convite")
-      @mail.body.encoded.should match(aceitar_convite_path(@convite))
+      @mail.body.encoded.should match(aceitar_convite_url(@convite))
     end
   end
 end
