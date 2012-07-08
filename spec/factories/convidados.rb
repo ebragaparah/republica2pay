@@ -2,7 +2,6 @@
 
 FactoryGirl.define do
   factory :convidado do
-    email "MyString"
-    convite_id "MyString"
+    sequence(:email) {|n| "email#{n}@examplo.com" }
   end
 end
