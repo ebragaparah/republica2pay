@@ -9,8 +9,15 @@ class ConvitesController < InheritedResources::Base
   end
   
   def create
-    create!(notice: 'Convites enviados com sucesso'){republica_path(current_user.republica)}
-    current_user.enviar_convite(@convite)
+    @convite = Convite.new(params[:convite])
+    @convite.republica = current_user.republica
+
+    if @convite.save
+      redirect_to republica_path(current_user.republica), notice: 'Convites enviados com sucesso'
+      current_user.enviar_convite(@convite)
+    else
+      redirect_to new_convite_path, :alert => @convite.errors.full_messages
+    end
   end
 
   def aceitar

@@ -4,5 +4,5 @@ class Convite < ActiveRecord::Base
   belongs_to :republica
   accepts_nested_attributes_for :convidados, :reject_if => :all_blank, :allow_destroy => true
 
-  validates_presence_of :republica
+  validates_presence_of :republica, :convidados
 end
