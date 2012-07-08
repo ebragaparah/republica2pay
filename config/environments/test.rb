@@ -35,6 +35,6 @@ Republica2pay::Application.configure do
   # Print deprecation notices to the stderr
   config.active_support.deprecation = :stderr
 
-  #devise
-  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+  #para testes
+  config.action_mailer.default_url_options = { :host => 'www.example.com' }
 end
