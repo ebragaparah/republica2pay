@@ -15,10 +15,10 @@ class RepublicaMailer < ActionMailer::Base
          subject: "#{morador} fez uma compra")
   end
 
-  def enviar_convite_de(convite, user)
+  def enviar_convite(convite, convidado, user)
     @convite = convite
     @user = user
-    mail(to: convite.convidados.map { |convidado| convidado.email },
+    mail(to: convidado.email,
          subject: "#{user.email} te convidou para republica #{user.republica.nome}",
          from: "#{user.email}")
   end

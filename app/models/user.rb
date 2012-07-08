@@ -48,6 +48,8 @@ class User < ActiveRecord::Base
   end
 
   def enviar_convite(convite)
-    RepublicaMailer.enviar_convite_de(convite,self).deliver
+    convite.convidados.each do |convidado|
+      RepublicaMailer.enviar_convite(convite, convidado, self).deliver
+    end
   end
 end

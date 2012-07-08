@@ -24,3 +24,9 @@ def criar_grupo(params)
   params[:user].save!
   deslogar
 end
+
+def enviar_convite_para(convidado)
+  convite = create :convite, convidados: [convidado]
+  create(:user_com_republica).enviar_convite(convite)
+  return convite
+end

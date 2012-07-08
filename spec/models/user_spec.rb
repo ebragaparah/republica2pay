@@ -55,14 +55,14 @@ describe User do
   end
 
   describe "#enviar_convite" do
-    it "deveria enviar email para os convidados do convite" do
+    it "deveria enviar email para os convidados do convite individualmente" do
       zerar_email
       @user.republica = create(:republica)
       3.times {create :convidado}
       
-      @user.enviar_convite(create :convite, convidados: Convidado.all)
+      @user.enviar_convite create(:convite, convidados: Convidado.all)
 
-      ultimo_email.to.should == Convidado.all.map { |convidado| convidado.email }
+      lista_de_destinatarios.should == Convidado.all.map { |convidado| [convidado.email] } #array de array, pq é padrão do mailer
     end
   end
   
