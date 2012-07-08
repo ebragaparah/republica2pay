@@ -8,7 +8,7 @@ class Convidado < ActiveRecord::Base
   before_create :gerar_token
 
   def aceitar_convite(convite)
-    User.create email: self.email, password: self.email, republica: convite.republica
+    User.new( email: self.email, password: self.email, republica: convite.republica).confirm!
     self.destroy
   end
 
