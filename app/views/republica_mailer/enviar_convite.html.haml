@@ -3,4 +3,4 @@
 %p= "#{@user.email} te convidou para participar da republica #{@user.republica.nome}"
 
 .link
-  = link_to "Click aqui para aceitar o convite", aceitar_convite_url(@convite)
+  = link_to "Click aqui para aceitar o convite", aceitar_convite_url(@convite, token: @convidado.token)

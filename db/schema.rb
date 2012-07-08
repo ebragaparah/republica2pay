@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120703202409) do
+ActiveRecord::Schema.define(:version => 20120708062708) do
 
   create_table "contas", :force => true do |t|
     t.string   "nome"
@@ -25,16 +25,17 @@ ActiveRecord::Schema.define(:version => 20120703202409) do
 
   create_table "convidados", :force => true do |t|
     t.string   "email"
-    t.integer  "republica_id"
     t.string   "convite_id"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.string   "token"
   end
 
   create_table "convites", :force => true do |t|
     t.text     "mensagem"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+    t.integer  "republica_id"
   end
 
   create_table "faturas", :force => true do |t|

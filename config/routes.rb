@@ -1,7 +1,7 @@
 Republica2pay::Application.routes.draw do
 
   resources :convites, only: [:new, :create] do
-    post :aceitar, :on => :member
+    get :aceitar, :on => :member
   end
 
   resources :grupos do

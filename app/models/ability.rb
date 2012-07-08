@@ -10,6 +10,8 @@ class Ability
       can :manage, Grupo
       can :manage, Conta
       can :create, Convite
+    else
+      can :aceitar, Convite
     end
     #
     # The first argument to `can` is the action you are giving the user permission to do.

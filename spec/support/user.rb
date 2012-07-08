@@ -26,7 +26,9 @@ def criar_grupo(params)
 end
 
 def enviar_convite_para(convidado)
-  convite = create :convite, convidados: [convidado]
-  create(:user_com_republica).enviar_convite(convite)
+  user = create(:user_com_republica)
+  convite = create :convite, convidados: [convidado], republica: user.republica
+  
+  user.enviar_convite(convite)
   return convite
 end

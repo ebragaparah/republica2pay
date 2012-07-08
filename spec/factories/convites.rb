@@ -4,5 +4,6 @@ FactoryGirl.define do
   factory :convite do
     mensagem "MyText"
     convidados {[create(:convidado)]}
+    republica {create :republica}
   end
 end

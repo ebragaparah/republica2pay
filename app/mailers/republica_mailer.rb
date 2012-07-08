@@ -17,6 +17,7 @@ class RepublicaMailer < ActionMailer::Base
 
   def enviar_convite(convite, convidado, user)
     @convite = convite
+    @convidado = convidado
     @user = user
     mail(to: convidado.email,
          subject: "#{user.email} te convidou para republica #{user.republica.nome}",
