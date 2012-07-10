@@ -60,7 +60,6 @@
                   - if current_user.republica 
                     %li= link_to 'Enviar convite', new_convite_path
                     %li= link_to 'Nova Fatura', new_fatura_path
-                  - if not current_user.grupos.empty?
                     %li.nav-header Grupo
                     %li= link_to "Novo Grupo", new_grupo_path
             .alert.alert-info
