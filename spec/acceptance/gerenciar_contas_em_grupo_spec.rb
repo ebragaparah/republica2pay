@@ -15,7 +15,8 @@ feature "gerenciar contas em um grupo" do
     page.should have_content 'Você não tem permissão para acessar esse conteúdo.'
     
     logar(goku)
-    visit new_grupo_conta_path(grupo)
+    visit grupo_path(goku.grupos.first)
+    click_link 'Nova conta'
 
     fill_in 'Nome', with: 'Agua'
     fill_in 'Valor', with: '100.44'

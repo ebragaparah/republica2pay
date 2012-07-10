@@ -1,19 +1,17 @@
-%h1 Listing grupos
+%h1 Meus grupos
 
 %table
   %tr
     %th Nome
-    %th
+    %th 
     %th
     %th
 
   - @grupos.each do |grupo|
     %tr
-      %td= grupo.nome
-      %td= link_to 'Show', grupo
-      %td= link_to 'Edit', edit_grupo_path(grupo)
-      %td= link_to 'Destroy', grupo, :confirm => 'Are you sure?', :method => :delete
+      %td= link_to grupo.nome, grupo
+      %td= link_to 'Editar este grupo', edit_grupo_path(grupo)
 
 %br
 
-= link_to 'New Grupo', new_grupo_path
+= link_to 'Novo Grupo', new_grupo_path

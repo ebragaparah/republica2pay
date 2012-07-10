@@ -1,9 +1,8 @@
 %h2
-  = 'Grupo ' + @grupo.nome
+  = 'Grupo ' + @grupo.nome + ' | '
+  = link_to 'Nova conta', new_grupo_conta_path(@grupo)
 
 .users
   = render @grupo.moradores
 
-= link_to 'Edit', edit_grupo_path(@grupo)
-\|
-= link_to 'Back', grupos_path
+= link_to 'voltar', grupos_path

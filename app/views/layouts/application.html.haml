@@ -31,7 +31,6 @@
               - if user_signed_in? 
                 %li= link_to('Minha Republica', republica_path(current_user.republica)) unless current_user.republica.nil?
                 %li= link_to("Meus Grupos", grupos_path)
-                %li= link_to 'Republicas', republicas_path
               - else
                 %li= link_to "Cadastrar", new_user_registration_path
             %ul(class='nav pull-right')
@@ -56,12 +55,12 @@
               .well.sidebar-nav
                 %h3 Ações
                 %ul.nav.nav-list
-                  %li.nav-header Ações
-                  - if user_signed_in? 
-                    %li= link_to("Novo Grupo", new_grupo_path)
-                    %li= link_to 'Nova Republica', new_republica_path
-                    %li= link_to 'Nova Fatura', new_fatura_path unless current_user.republica.nil?
-                    %li= link_to 'Enviar convite', new_convite_path if current_user.republica
+                  %li.nav-header Republica
+                  %li= link_to 'Nova Republica', new_republica_path
+                  %li= link_to 'Enviar convite', new_convite_path if current_user.republica
+                  %li= link_to 'Nova Fatura', new_fatura_path unless current_user.republica.nil?
+                  %li.nav-header Grupo
+                  %li= link_to "Novo Grupo", new_grupo_path
             .alert.alert-info
               %p
                 %h4.alert-heading Quer ajudar melhorar ou relatar problemas?
