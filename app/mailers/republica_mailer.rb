@@ -8,11 +8,14 @@ class RepublicaMailer < ActionMailer::Base
          subject: "Contas do mes - Total:#{fatura.total}, Por Pessoa:#{fatura.por_pessoa}")
   end
 
-  def enviar_debito_grupo(grupo, morador)
+  def enviar_debito_grupo(grupo, conta, morador)
     @grupo = grupo
+    @morador = morador
+    @conta = conta
     emails = grupo.moradores.map { |morador| morador.email }
     mail(to: emails, 
-         subject: "#{morador} fez uma compra")
+         subject: "#{morador.email} fez uma compra",
+         from: "#{morador.email}")
   end
 
   def enviar_convite(convite, convidado, user)

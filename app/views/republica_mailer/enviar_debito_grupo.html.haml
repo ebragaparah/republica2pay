@@ -1,9 +1,10 @@
-!!!
-%html
-  %head
-    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}
-  %body
-    %h2
-      = @grupo.nome + ' - Cituação de Debito'
-      %br/
-    = render @grupo.moradores
+.info
+  %h3
+    %p= "#{@morador.email} fez uma compra de R$ #{@conta.valor} no grupo #{@grupo.nome} da republica #{@morador.republica.nome}"
+    %P= link_to 'Click aqui para mais informações sobre a compra', grupo_conta_url(@grupo, @conta)
+
+%h3
+  %p= 'Cituação de Debito'
+
+.moradores
+  = render @grupo.moradores

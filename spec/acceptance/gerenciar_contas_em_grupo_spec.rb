@@ -20,6 +20,7 @@ feature "gerenciar contas em um grupo" do
 
     fill_in 'Nome', with: 'Agua'
     fill_in 'Valor', with: '100.44'
+    fill_in 'Descrição', with: 'Descrição opcional qualquer.'
     click_button 'Criar Conta'
 
     within_fieldset goku.email do

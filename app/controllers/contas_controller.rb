@@ -11,7 +11,7 @@ class ContasController < InheritedResources::Base
 
     if @conta.save
       redirect_to grupo_path(@grupo), notice: 'Conta criada com sucesso.'
-      current_user.enviar_debito_grupo(@grupo)
+      current_user.enviar_debito(@grupo, @conta)
     else
       render 'new'
     end
