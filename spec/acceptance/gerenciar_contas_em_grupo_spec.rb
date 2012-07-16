@@ -2,7 +2,7 @@
 require 'spec_helper'
 
 feature "gerenciar contas em um grupo" do
-  scenario 'criação de uma conta simples' do
+  scenario 'criação de uma conta simples', javascript: true do
     zerar_email
 
     republica = create :republica
