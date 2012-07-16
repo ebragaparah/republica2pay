@@ -1,17 +1,8 @@
 %h1 Meus grupos
 
-%table
-  %tr
-    %th Nome
-    %th 
-    %th
-    %th
-
-  - @grupos.each do |grupo|
-    %tr
-      %td= link_to grupo.nome, grupo
-      %td= link_to 'Editar este grupo', edit_grupo_path(grupo)
-
-%br
-
-= link_to 'Novo Grupo', new_grupo_path
+- @grupos.each do |grupo|
+  %p 
+    Grupo: 
+    = link_to grupo.nome, grupo
+    | 
+    = link_to 'Editar este grupo', edit_grupo_path(grupo)
