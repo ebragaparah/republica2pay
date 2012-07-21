@@ -12,9 +12,9 @@ gem 'haml-rails', '~> 0.3.4'
 gem 'inherited_resources', '~> 1.3.1'
 gem 'formtastic', '~> 2.2.0'
 gem 'jquery-rails'
+gem "twitter-bootstrap-rails", '~> 2.1.0'
 
 group :assets do
-  gem "twitter-bootstrap-rails", '~> 2.1.0'
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
   gem 'therubyracer', :platform => :ruby
