@@ -13,7 +13,7 @@ feature "gerenciar republica" do
 
     page.should have_content 'republica 1'
     page.should have_content 'Republica criada com sucesso.'
-    within_fieldset 'Moradores' do
+    within_fieldset 'usuario@email.com' do
       page.should have_content 'usuario@email.com'
     end
   end

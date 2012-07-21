@@ -1,12 +1,13 @@
-%p
-  %b Vencimento:
-  = @fatura.vencimento
-%p
-  %b Total:
-  = @fatura.total
-%p
-  %b Por pessoa:
-  = @fatura.por_pessoa
+.thumbnail
+  %p
+    %b Vencimento:
+    = fatura.vencimento
+  %p
+    %b Total:
+    = fatura.total
+  %p
+    %b Por pessoa:
+    = fatura.por_pessoa
 
-.contas
-  = render @fatura.contas
+  .contas
+    = render fatura.contas

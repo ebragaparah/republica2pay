@@ -2,11 +2,15 @@
   %b Nome:
   = @republica.nome
 
-%fieldset
-  %legend Moradores
+%ul.nav.nav-pills
+  %li.active
+    %a{"data-toggle" => "tab", :href => "#tab1"} Moradores
+  %li
+    %a{"data-toggle" => "tab", :href => "#tab2"} Faturas
 
-  - @republica.moradores.each do |morador|
-    %p
-      %b Email:
-      = morador.email
-= link_to 'Back', republicas_path
+.tab-content
+  #tab1.tab-pane.active
+    = render @republica.moradores
+  #tab2.tab-pane
+    = render @republica.faturas
+

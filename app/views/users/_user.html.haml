@@ -5,6 +5,8 @@
   %p
     %b email:
     = user.email
-  %p
-    %b Debito:
-    = user.debito_em(@grupo)
+  
+  -if @grupo
+    %p
+      %b Debito:
+      = user.debito_em(@grupo)

@@ -1,8 +1,15 @@
-%h2
-  = 'Grupo ' + @grupo.nome + ' | '
-  = link_to 'Nova conta', new_grupo_conta_path(@grupo)
+%h1= 'Grupo ' + @grupo.nome
 
-.users
-  = render @grupo.moradores
+%ul.nav.nav-pills
+  %li.active
+    %a{"data-toggle" => "tab", :href => "#tab1"} Participantes
+  %li
+    %a{"data-toggle" => "tab", :href => "#tab2"} Contas
+  %li
+    %a{href: new_grupo_conta_path(@grupo)} Nova conta
 
-= link_to 'voltar', grupos_path
+.tab-content
+  #tab1.tab-pane.active
+    = render @grupo.moradores
+  #tab2.tab-pane
+    = render @grupo.contas

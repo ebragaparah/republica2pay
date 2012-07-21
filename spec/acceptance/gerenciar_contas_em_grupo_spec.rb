@@ -2,7 +2,7 @@
 require 'spec_helper'
 
 feature "gerenciar contas em um grupo" do
-  scenario 'criação de uma conta simples' do
+  scenario 'criação de uma conta simples', javascript: true do
     zerar_email
 
     republica = create :republica
@@ -23,6 +23,8 @@ feature "gerenciar contas em um grupo" do
     fill_in 'Descrição', with: 'Descrição opcional qualquer.'
     click_button 'Criar Conta'
 
+    page.should have_content 'Conta criada com sucesso.'
+
     within_fieldset goku.email do
       page.should have_content 'Debito: 0'  
     end
@@ -30,6 +32,11 @@ feature "gerenciar contas em um grupo" do
     within_fieldset vegeta.email do
       page.should have_content 'Debito: 100.44'  
     end
+
+    click_link 'Contas'
+    page.should have_content 'Agua'
+    page.should have_content '100.44'
+    page.should have_content 'Descrição opcional qualquer.'
 
     ultimo_email.should_not be_nil
     ultimo_email.to.should == grupo.moradores.map { |e| e.email }    
