@@ -7,7 +7,6 @@ gem 'devise', '~> 2.0.4'
 gem 'cancan', '~> 1.6.7'
 gem 'rails_admin'
 
-gem "twitter-bootstrap-rails"
 gem 'cocoon', '~> 1.0.20'
 gem 'haml-rails', '~> 0.3.4'
 gem 'inherited_resources', '~> 1.3.1'
@@ -15,6 +14,7 @@ gem 'formtastic', '~> 2.2.0'
 gem 'jquery-rails'
 
 group :assets do
+  gem "twitter-bootstrap-rails"
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
   gem 'therubyracer', :platform => :ruby
