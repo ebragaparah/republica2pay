@@ -14,7 +14,7 @@ gem 'formtastic', '~> 2.2.0'
 gem 'jquery-rails'
 
 group :assets do
-  gem "twitter-bootstrap-rails"
+  gem "twitter-bootstrap-rails", '~> 2.1.0'
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
   gem 'therubyracer', :platform => :ruby

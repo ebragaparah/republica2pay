@@ -262,6 +262,6 @@ DEPENDENCIES
   sqlite3
   therubyracer
   timecop (~> 0.3.5)
-  twitter-bootstrap-rails
+  twitter-bootstrap-rails (~> 2.1.0)
   uglifier (>= 1.0.3)
   valid_attribute (~> 1.2.0)
