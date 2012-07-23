@@ -1,6 +1,7 @@
 = semantic_form_for [@grupo, @conta] do |f|
   = f.inputs do
-    = f.input :nome
+    %h3= 'Morador: ' + current_user.email
+    = f.input :nome, label: 'Nome da conta:'
     = f.input :valor
     = f.input :descricao, label: 'Descrição'
 
