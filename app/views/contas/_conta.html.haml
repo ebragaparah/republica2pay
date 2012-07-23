@@ -1,13 +1,10 @@
 %fieldset
-  %legend Conta
+  %legend= conta.nome
   
   - if conta.user
     %p
       %b Morador:
       = conta.user.email
-  %p
-    %b Nome:
-    = conta.nome
   %p
     %b Valor:
     = conta.valor

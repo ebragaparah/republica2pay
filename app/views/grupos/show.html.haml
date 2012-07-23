@@ -13,10 +13,11 @@
     = render @grupo.moradores
   #tab2.tab-pane
     = table_for @grupo.contas, html: {class: 'datatable'} do |table|
-      = table.head("Morador", "Conta", "Valor", "Dia")
+      = table.head("Morador", "Conta", "Valor", "Dia", "Detalhes")
       = table.body do |conta|
         = table.r do
           = table.d h(conta.user.email)
           = table.d h(conta.nome)
           = table.d h(conta.valor)
           = table.d h(conta.created_at.strftime("%d/%m/%y"))
+          = table.d h(link_to 'clique aqui', grupo_conta_path(@grupo, conta))

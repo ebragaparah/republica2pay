@@ -34,6 +34,7 @@ feature "gerenciar contas em um grupo" do
     end
 
     click_link 'Contas'
+    click_link 'clique aqui'
     page.should have_content 'Agua'
     page.should have_content '100.44'
     page.should have_content 'Descrição opcional qualquer.'
