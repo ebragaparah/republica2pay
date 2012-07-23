@@ -14,12 +14,15 @@ gem 'formtastic', '~> 2.2.0'
 gem 'jquery-rails'
 gem "twitter-bootstrap-rails", '~> 2.1.0'
 
+gem "watu_table_builder", :require => "table_builder"
+
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
   gem 'therubyracer', :platform => :ruby
   gem 'execjs'
   gem 'uglifier', '>= 1.0.3'
+  gem 'jquery-datatables-rails'
 end
 
 group :test, :development do
